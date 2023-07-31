@@ -1,5 +1,6 @@
 import express	from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 import { config } from 'dotenv';
 import Deck from '../models/Deck';
 
@@ -10,9 +11,11 @@ const app = express();
 const uri = process.env.MONGO_URL || "";
 
 app.use(express.json());
+app.use(cors());
 
-app.get("/", (req, res) => {
-	res.send("Hello World!");
+app.get("/decks", async (req, res) => {
+	const decks = await Deck.find();
+	res.json(decks);
 });
 
 app.post("/decks", async (req, res) => {
