@@ -26,6 +26,12 @@ app.post("/decks", async (req, res) => {
 	res.json(createDeck);
 });
 
+app.delete("/decks/:id", async (req, res) => {
+	const deckId = await req.params.id;
+	const deck = await Deck.findByIdAndDelete(deckId);
+	res.json(deck);
+});
+
 mongoose.connect(uri)
 	.then(() => {
 	console.log(`Server running on port ${PORT}`);

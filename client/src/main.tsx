@@ -1,10 +1,29 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
-import './index.css'
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route
+} from 'react-router-dom'
+import './index.css'  
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+  },
+  {
+    path: '/decks/:id',
+    element: <div>Deck</div>,
+  },
+])
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <div className="page">
+        <RouterProvider router={router} />
+    </div>
+  </React.StrictMode>
+);
+
