@@ -1,5 +1,11 @@
 import { API_URL } from "./config";
 
+export type TDeck = {
+	title: string;
+	cards: [];
+	_id: string;
+}
+
 export const createDeck = async (title: string) => {
 	const response = await fetch(`${API_URL}/decks`, {
 		method: "POST",
@@ -12,13 +18,14 @@ export const createDeck = async (title: string) => {
 	return data;
 };
 
-export type TDeck = {
-	title: string;
-	_id: string;
-}
-
 export const getDecks = async (): Promise<TDeck[]> => {
 	const response = await fetch(`${API_URL}/decks`);
+	const data = await response.json();
+	return data;
+}
+
+export const getDeck = async (id: string): Promise<TDeck> => {
+	const response = await fetch(`${API_URL}/decks/${id}`);
 	const data = await response.json();
 	return data;
 }

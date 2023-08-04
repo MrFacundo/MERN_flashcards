@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
+import Deck from './Deck.tsx'
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -14,8 +16,8 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: '/decks/:id',
-    element: <div>Deck</div>,
+    path: '/decks/:deckId',
+    element: <Deck />,
   },
 ])
 
