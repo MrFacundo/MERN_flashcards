@@ -9,11 +9,11 @@ import "./index.css";
 
 const router = createBrowserRouter([
 	{
-		path: "/",
+		path: "/MERN_flashcards/",
 		element: <App />,
 	},
 	{
-		path: "/decks/:deckId",
+		path: "/MERN_flashcards/decks/:deckId",
 		element: <Deck />,
 	},
 ]);

@@ -5,10 +5,7 @@ export default function Header() {
 		<div className="header">
 			<div className="container">
 				<div>
-					<a href="/">FlashCardSage</a>
-				</div>
-				<div>
-					<a href="/">Decks</a>
+					<a href="/MERN_flashcards/">Decks</a>
 				</div>
 			</div>
 		</div>
