@@ -44,37 +44,38 @@ export default function Deck() {
 	return (
 		<div className="Deck">
 			<h1>{deck?.title}</h1>
+			<form onSubmit={handleCreateDeck}>
+				<button disabled={!question || !answer}>Create Card</button>
+				<div className="container">
+					<input
+						placeholder="Question"
+						id="card-question"
+						value={question}
+						onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+							setQuestion(e.target.value);
+						}}
+					/>
+					<input
+						placeholder="Answer"
+						id="card-answer"
+						value={answer}
+						onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+							setAnswer(e.target.value);
+						}}
+					/>
+				</div>
+			</form>
 			<ul className="cards">
 				{cards.map((card, index) => (
 					<li key={index}>
 						<button onClick={() => handleDeleteCard(index)}>
 							X
 						</button>
-						question: {card.question} - answer: {card.answer}
+						<span>question: {card.question}</span>-{" "}
+						<span>answer: {card.answer}</span>
 					</li>
 				))}
 			</ul>
-			<form onSubmit={handleCreateDeck}>
-				<label htmlFor="card-question">Question</label>
-				<input
-					id="card-question"
-					value={question}
-					onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-						setQuestion(e.target.value);
-					}}
-				/>
-				<label htmlFor="card-answer">answer</label>
-				<input
-					id="card-answer"
-					value={answer}
-					onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-						setAnswer(e.target.value);
-					}}
-				/>
-				<button
-					disabled={!question || !answer}
-				>Create Card</button>
-			</form>
 		</div>
 	);
 }
