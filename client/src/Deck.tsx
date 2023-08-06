@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { TDeck, getDeck } from "./api/deck";
-import { TCard, createCard, deleteCard, getCards } from "./api/card";
+import { TCard, createCard, deleteCard } from "./api/card";
 import { useParams } from "react-router-dom";
 import "./Deck.css";
 
